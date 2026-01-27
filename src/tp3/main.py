@@ -5,7 +5,7 @@ from src.tp3.utils.session import Session
 def main():
     logger.info("Starting TP3")
 
-    ip = "VALEUR_IP:9002"
+    ip = "31.220.95.27:9002"
     challenges = {"1": f"http://{ip}/captcha1/"}
 
     for i in challenges:

@@ -7,7 +7,7 @@ def main():
     logger.info("Starting TP1")
 
     capture = Capture()
-    capture.capture_trafic()
+    capture.capture_traffic()
     capture.analyse("tcp")
     summary = capture.get_summary()
 
@@ -15,7 +15,6 @@ def main():
     report = Report(capture, filename, summary)
     report.generate("graph")
     report.generate("array")
-
     report.save(filename)
 
 

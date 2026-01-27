@@ -1,4 +1,5 @@
 from src.tp1.utils.lib import choose_interface
+from tp1.utils.config import logger
 
 
 class Capture:
@@ -6,11 +7,12 @@ class Capture:
         self.interface = choose_interface()
         self.summary = ""
 
-    def capture_trafic(self) -> None:
+    def capture_traffic(self) -> None:
         """
         Capture network trafic from an interface
         """
         interface = self.interface
+        logger.info(f"Capture traffic from interface {interface}")
 
     def sort_network_protocols(self) -> None:
         """
@@ -36,6 +38,9 @@ class Capture:
         """
         all_protocols = self.get_all_protocols()
         sort = self.sort_network_protocols()
+        logger.debug(f"All protocols: {all_protocols}")
+        logger.debug(f"Sorted protocols: {sort}")
+
         self.summary = self.gen_summary()
 
     def get_summary(self) -> str:
