@@ -14,6 +14,9 @@ def choose_interface() -> str:
     user_choice_interface = input("Enter the number for network interface: ")
 
     index = int(user_choice_interface)
+    if index >= len(interface_list):
+        logger.error("Invalid network interface")
+        return choose_interface()
     logger.info("you choose : %s", interface_list[index])
     interface = interface_list[index]
 
