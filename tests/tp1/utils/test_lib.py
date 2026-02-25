@@ -1,20 +1,15 @@
-from src.tp1.utils.lib import hello_world, choose_interface
+from scapy.all import get_if_list
+from tp1.utils.config import logger
 
 
-def test_when_hello_world_then_return_hello_world():
-    # Given
-    string = "hello world"
+def choose_interface() -> str:
+    """
+    Return network interface and input user choice
 
-    # When
-    result = hello_world()
+    :return: network interface
+    """
+    interface = input("Choose network interface :")
+    return interface
 
-    # Then
-    assert result == string
-
-
-def test_when_choose_interface_then_return_empty_string():
-    # When
-    result = choose_interface()
-
-    # Then
-    assert result == ""
+def main():
+    choose_interface()
