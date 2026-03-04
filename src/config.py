@@ -24,4 +24,4 @@ file_handler.setFormatter(logging.Formatter(FORMAT))
 stream_handler = logging.StreamHandler()
 stream_handler.setFormatter(ColorFormatter(FORMAT))
 
-logging.basicConfig(level=logging.INFO, handlers=[file_handler, stream_handler])
+logging.basicConfig(level=logging.INFO, handlers=[file_handler, stream_handler], force=True)

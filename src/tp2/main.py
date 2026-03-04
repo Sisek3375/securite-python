@@ -61,14 +61,29 @@ if __name__ == "__main__":
         b"\xff\xd5"
     )
 
-    Disassembler(shellcode1)
-    Emulator(shellcode1)
-    ShellcodeAnalyzer(shellcode1)
+    # Shellcode 1
+    logger.info("-----Shellcode 1-----")
+    disasm1 = Disassembler(shellcode1)
+    logger.info(disasm1.get_capstone_analysis())
+    emu1 = Emulator(shellcode1)
+    logger.info(emu1.get_pylibemu_analysis())
+    analyzer1 = ShellcodeAnalyzer(shellcode1)
+    logger.info(analyzer1.get_llm_analysis())
 
-    Disassembler(shellcode2)
-    Emulator(shellcode2)
-    ShellcodeAnalyzer(shellcode2)
+    # Shellcode 2
+    logger.info("-----Shellcode 2-----")
+    disasm2 = Disassembler(shellcode2)
+    logger.info(disasm2.get_capstone_analysis())
+    emu2 = Emulator(shellcode2)
+    logger.info(emu2.get_pylibemu_analysis())
+    analyzer2 = ShellcodeAnalyzer(shellcode2)
+    logger.info(analyzer2.get_llm_analysis())
 
-    Disassembler(shellcode3)
-    Emulator(shellcode3)
-    ShellcodeAnalyzer(shellcode3)
+    # Shellcode 3
+    logger.info("-----Shellcode 3-----")
+    disasm3 = Disassembler(shellcode3)
+    logger.info(disasm3.get_capstone_analysis())
+    emu3 = Emulator(shellcode3)
+    logger.info(emu3.get_pylibemu_analysis())
+    analyzer3 = ShellcodeAnalyzer(shellcode3)
+    logger.info(analyzer3.get_llm_analysis())

@@ -50,13 +50,13 @@ class Disassembler:
 class Emulator:
     def __init__(self, shellcode):
         self.shellcode = shellcode
-        self.emu = pylibemu.Emulator
+        self.emu = pylibemu.Emulator()
 
     def get_pylibemu_analysis(self) -> dict:
         """
         Emulate the shellcode with pylibemu
         """
-        offset = self.emu.test(self.shellcode)
+        offset = self.emu.shellcode_getpc_test(self.shellcode)
 
         if offset < 0:
             return {
@@ -64,6 +64,9 @@ class Emulator:
                 "offset": None,
                 "profile": None
             }
+
+        self.emu.prepare(self.shellcode, offset)
+        self.emu.test()
 
         return {
             "shellcode_detected": True,
@@ -84,6 +87,7 @@ class ShellcodeAnalyzer:
         client = OpenAI(api_key=OPENAI_KEY)
         response = client.chat.completions.create(
             model="gpt-4o",
-            messages=[{"role": "user", "content": str(capstone_result)}]
+            messages=[{"role": "user",
+                       "content": f"Analyse ce shellcode x86 Windows et dis-moi ce qu'il fait et s'il est malveillant : {capstone_result}"}]
         )
         return response.choices[0].message.content
