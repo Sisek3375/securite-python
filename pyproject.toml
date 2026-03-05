@@ -24,6 +24,7 @@ openai = "^2.24.0"
 matplotlib = "^3.10.8"
 pytesseract = "^0.3.13"
 pillow = "^12.1.1"
+pwntools = "==4.15.0"
 
 [build-system]
 requires = ["poetry-core"]
